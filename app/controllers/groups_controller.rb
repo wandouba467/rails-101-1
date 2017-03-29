@@ -37,10 +37,6 @@ before_action :find_group_and_check_permission, only: [:edit, :update, :destroy]
   end
 
   def destroy
-
-    if current_user! = @group.user
-    find_group_and_check_permission
-
     @group.destroy
     flash[:alert] = "Group deleted"
     redirect_to groups_path
